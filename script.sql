@@ -85,3 +85,14 @@ ALTER TABLE VENTA_DETALLE
     ON UPDATE CASCADE
     ON DELETE CASCADE
 ;
+
+SELECT 
+    table_name AS 'Tabla',
+    column_name AS 'Columna',
+    referenced_table_name AS 'Tabla Referenciada',
+    referenced_column_name AS 'Columna Referenciada'
+FROM
+    information_schema.key_column_usage
+WHERE
+    constraint_schema = 'dbGamarraMarket'
+    AND referenced_table_name IS NOT NULL;
